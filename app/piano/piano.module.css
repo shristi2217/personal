@@ -12,7 +12,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 1600px; /* bigger keyboard */
+  max-width: 1600px;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -33,34 +33,32 @@
   outline: none;
   padding: 0;
   margin: 0;
-  background: transparent; /* IMPORTANT: no grey blocks */
+  background: transparent;
   touch-action: none;
   border-radius: 0 0 3px 3px;
-  transition: background 0.05s ease, transform 0.05s ease;
+  transition: transform 0.05s ease, background 0.05s ease, box-shadow 0.05s ease;
   z-index: 2;
   will-change: transform, background;
 }
 
-/* ── White keys ── */
-.whiteKey:hover {
-  background: rgba(0, 0, 0, 0.08);
-  transform: scaleY(0.992);
+/* ── Remove hover overlays ── */
+.key:hover {
+  background: transparent;
+  transform: none;
 }
 
+/* ── White key press ── */
 .whiteKey.active {
-  background: rgba(0, 0, 0, 0.12);
-  transform: scaleY(0.985); /* small press */
-  transform-origin: top center;
-}
-
-/* ── Black keys ── */
-.blackKey:hover {
-  background: rgba(0, 0, 0, 0.24);
-  transform: scaleY(0.99);
-}
-
-.blackKey.active {
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(0, 0, 0, 0.08);
   transform: scaleY(0.985);
   transform-origin: top center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Black key press ── */
+.blackKey.active {
+  background: rgba(0, 0, 0, 0.18);
+  transform: scaleY(0.985);
+  transform-origin: top center;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
