@@ -1,0 +1,66 @@
+/* ── Page ── */
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 0;
+}
+
+/* ── Keyboard wrapper ── */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1600px; /* bigger keyboard */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── Image ── */
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+/* ── Shared key base ── */
+.key {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  background: transparent; /* IMPORTANT: no grey blocks */
+  touch-action: none;
+  border-radius: 0 0 3px 3px;
+  transition: background 0.05s ease, transform 0.05s ease;
+  z-index: 2;
+  will-change: transform, background;
+}
+
+/* ── White keys ── */
+.whiteKey:hover {
+  background: rgba(0, 0, 0, 0.08);
+  transform: scaleY(0.992);
+}
+
+.whiteKey.active {
+  background: rgba(0, 0, 0, 0.12);
+  transform: scaleY(0.985); /* small press */
+  transform-origin: top center;
+}
+
+/* ── Black keys ── */
+.blackKey:hover {
+  background: rgba(0, 0, 0, 0.24);
+  transform: scaleY(0.99);
+}
+
+.blackKey.active {
+  background: rgba(0, 0, 0, 0.28);
+  transform: scaleY(0.985);
+  transform-origin: top center;
+}
