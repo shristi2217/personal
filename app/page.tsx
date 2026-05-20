@@ -1,6 +1,5 @@
 "use client";
 
-export default function Home() {
   return (
     <main>
       <img src="/deskmain.png" className="bg" />
