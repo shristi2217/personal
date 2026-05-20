@@ -1,27 +1,236 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ─────────────────────────────────────────────────────────────────────────────
+   globals.css — Desk Homepage
+   ───────────────────────────────────────────────────────────────────────────── */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Reset ─────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* ── Root container ────────────────────────────────────────────────────────── */
+.desk-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  cursor: default;
+  background: white;
+}
+
+/* ── Background image ─────────────────────────────────────────────────────── */
+.bg {
+  position: absolute;
+
+  width: 105%;
+  height: auto;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 0;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Hitbox ───────────────────────────────────────────────────────────────── */
+.hitbox {
+  position: absolute;
+  z-index: 10;
+
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+
+  --glow: rgba(255, 255, 255, 0.4);
+
+  transition:
+    transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 200ms ease,
+    background-color 200ms ease;
+}
+
+/* ── Hover ────────────────────────────────────────────────────────────────── */
+.hitbox:hover {
+  transform: scale(1.06);
+
+  background-color: rgba(255, 255, 255, 0.05);
+
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.15),
+    0 0 18px 6px var(--glow),
+    inset 0 0 12px rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: brightness(1.15);
+  -webkit-backdrop-filter: brightness(1.15);
+}
+
+/* ── Active ───────────────────────────────────────────────────────────────── */
+.hitbox:active {
+  transform: scale(0.97);
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.25),
+    0 0 10px 2px var(--glow);
+
+  transition-duration: 80ms;
+}
+
+/* ── Keyboard focus ───────────────────────────────────────────────────────── */
+.hitbox:focus-visible {
+  outline: 2px dashed rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
+}
+
+/* ── Debug labels ─────────────────────────────────────────────────────────── */
+.hitbox-label {
+  display: none;
+
+  position: absolute;
+  top: 2px;
+  left: 2px;
+
+  font-size: 9px;
+  font-family: "Courier New", monospace;
+  font-weight: 700;
+
+  color: #0ff;
+  text-shadow: 0 0 4px #000;
+
+  pointer-events: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ── DEBUG MODE ───────────────────────────────────────────────────────────── */
+[data-debug="true"] .hitbox {
+  border: 1.5px dashed rgba(0, 255, 255, 0.7);
+  background: rgba(0, 255, 255, 0.05);
+}
+
+[data-debug="true"] .hitbox-label {
+  display: block;
+}
+
+[data-debug="true"] .hitbox:hover {
+  border-color: #ff0;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .hitbox {
+    border-radius: 8px;
   }
+
+  .hitbox:hover {
+    transform: scale(1.08);
+  }
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hitbox {
+    transition: box-shadow 100ms ease;
+  }
+
+  .hitbox:hover {
+    transform: none;
+  }
+}
+
+.laptop {
+  top: 56%;
+  left: 67%;
+  width: 20%;
+  height: 28%;
+}
+
+.cassette {
+  top: 42%;
+  left: 63%;
+  width: 17%;
+  height: 20%;
+}
+
+.teddy {
+  top: 48%;
+  left: 33%;
+  width: 10%;
+  height: 16%;
+}
+
+.notebook {
+  top: 70%;
+  left: 4%;
+  width: 13%;
+  height: 16%;
+}
+
+.music {
+  top: 67%;
+  left: 30%;
+  width: 15%;
+  height: 15%;
+}
+
+.redbull {
+  top: 68%;
+  left: 52%;
+  width: 5%;
+  height: 12%;
+}
+
+.label {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-family: "Caveat", cursive;
+  font-size: 18px;
+
+  letter-spacing: 1px;
+  white-space: nowrap;
+
+  color: rgba(0,0,0,0.8);
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+
+.hitbox:hover .label {
+  opacity: 1;
+}
+
+.music {
+  top: 67%;
+  left: 30%;
+  width: 15%;
+  height: 15%;
+}
+
+.projects {
+  top: 18%;
+  left: 69%;
+  width: 14%;
+  height: 18%;
 }
