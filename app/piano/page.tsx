@@ -4,6 +4,7 @@ import { useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './piano.module.css';
 
+
 /* ── WHITE KEYS ── */
 const WHITE_KEYS = [
   { note: 'b1', left: 16.5, width: 5 },
@@ -158,13 +159,13 @@ export default function PianoPage() {
     <main className={styles.main}>
       <div className={styles.container}>
         <Image
-          src="/assets/keyboard.png"
-          alt="Keyboard"
-          width={1456}
-          height={816}
-          className={styles.image}
-          priority
-        />
+  src="/keyboard.png"
+  alt="Keyboard"
+  width={1456}
+  height={816}
+  className={styles.image}
+  priority
+/>
 
         {WHITE_KEYS.map(k => (
           <button
