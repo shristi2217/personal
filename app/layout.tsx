@@ -1,10 +1,9 @@
-// app/layout.tsx
-import "./globals.css";
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "the study",
-  description: "a personal universe",
+  title: "Desk",
+  description: "Interactive desk homepage",
 };
 
 export default function RootLayout({
@@ -14,9 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="m-0 p-0 antialiased bg-[#f8f8f6] text-black">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
