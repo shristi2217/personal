@@ -1,24 +1,18 @@
-/* ─────────────────────────────────────────────────────────────────────────────
-   globals.css — Desk Homepage
-   ───────────────────────────────────────────────────────────────────────────── */
 
-/* ── Reset ─────────────────────────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ── Base ──────────────────────────────────────────────────────────────────── */
 html,
 body {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
+  
   background: #fff;
 }
 
-/* ── Root container ────────────────────────────────────────────────────────── */
 .desk-root {
   position: relative;
   width: 100vw;
@@ -28,7 +22,6 @@ body {
   background: white;
 }
 
-/* ── Background image ─────────────────────────────────────────────────────── */
 .bg {
   position: absolute;
 
@@ -46,7 +39,7 @@ body {
   pointer-events: none;
 }
 
-/* ── Hitbox ───────────────────────────────────────────────────────────────── */
+
 .hitbox {
   position: absolute;
   z-index: 10;
@@ -82,7 +75,7 @@ body {
   -webkit-backdrop-filter: brightness(1.15);
 }
 
-/* ── Active ───────────────────────────────────────────────────────────────── */
+
 .hitbox:active {
   transform: scale(0.97);
 
@@ -93,13 +86,13 @@ body {
   transition-duration: 80ms;
 }
 
-/* ── Keyboard focus ───────────────────────────────────────────────────────── */
+
 .hitbox:focus-visible {
   outline: 2px dashed rgba(255, 255, 255, 0.6);
   outline-offset: 3px;
 }
 
-/* ── Debug labels ─────────────────────────────────────────────────────────── */
+
 .hitbox-label {
   display: none;
 
@@ -119,7 +112,7 @@ body {
   line-height: 1;
 }
 
-/* ── DEBUG MODE ───────────────────────────────────────────────────────────── */
+
 [data-debug="true"] .hitbox {
   border: 1.5px dashed rgba(0, 255, 255, 0.7);
   background: rgba(0, 255, 255, 0.05);
@@ -133,7 +126,7 @@ body {
   border-color: #ff0;
 }
 
-/* ── Responsive ───────────────────────────────────────────────────────────── */
+
 @media (max-width: 480px) {
   .hitbox {
     border-radius: 8px;
@@ -144,7 +137,6 @@ body {
   }
 }
 
-/* ── Reduced motion ───────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .hitbox {
     transition: box-shadow 100ms ease;

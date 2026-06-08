@@ -50,7 +50,9 @@ const BLACK_KEYS = [
 ];
 
 /* ── KEYBOARD INPUT MAP ── */
-const KEYBOARD_MAP: Record<string, string> = {
+
+ const KEYBOARD_MAP: Record<string, string> = {
+  // White keys
   a: 'b1',
   s: 'c1',
   d: 'd1',
@@ -60,11 +62,16 @@ const KEYBOARD_MAP: Record<string, string> = {
   j: 'a1',
   k: 'b2',
   l: 'c2',
-  ';': 'd2',
 
-  z: 'g2',
-  x: 'a2',
+  z: 'd2',
+  x: 'e2',
+  c: 'g2',
+  v: 'a2',
+  b: 'b3',
+  n: 'c3',
+  m: 'd3',
 
+  // Black keys
   w: 'csharp1',
   e: 'dsharp1',
   t: 'fsharp1',
@@ -172,68 +179,47 @@ export default function PianoPage() {
     </div>
      <div className={styles.infoGrid}>
   <div className={styles.card}>
-    <h3>Keyboard Stats</h3>
 
-   <ul>
-  <li>Started learning: age 5</li>
-  <li>Years of lessons: 9</li>
-  <li>Theory: Grade 7</li>
-  <li>Practical: Grade 6</li>
-  <li>Current relationship with the keyboard: complicated</li>
-  <li>Practice frequency: rare but well-intentioned</li>
-</ul>
+    <div className={styles.cardTitle}>
+  Keyboard Stats
+</div>
+  <div className={styles.profileLeft}>
+    <img
+      src="/me.jpg"
+      alt="Shristi"
+       width={200}
+  height={220}
+      className={styles.profileImage}
+    />
+
+    <div className={styles.profileName}>
+      Shristi Sharma
+    </div>
+
+    <div className={styles.profileTag}>
+      Questionably active pianist
+    </div>
   </div>
+
+  <div className={styles.profileRight}>
+    <p><strong>Started learning:</strong> age 5</p>
+<p><strong>Years of lessons:</strong> 9</p>
+<p><strong>Theory:</strong> Grade 7</p>
+<p><strong>Practical:</strong> Grade 6</p>
+<p><strong>Current relationship with the keyboard:</strong> complicated</p>
+<p><strong>Practice frequency:</strong> rare but well-intentioned</p>
+  </div>
+</div>
 
   
 </div>
 
-<div className={styles.controls}>
-  <h3>Keyboard Controls</h3>
 
-  <div className={styles.controlsGrid}>
-    <div>
-      <strong>White Keys</strong>
-
-      <p>A → B</p>
-      <p>S → C</p>
-      <p>D → D</p>
-      <p>F → E</p>
-      <p>G → F</p>
-      <p>H → G</p>
-      <p>J → A</p>
-      <p>K → B2</p>
-      <p>L → C2</p>
-      <p>Z → D2</p>
-      <p>X → F2</p>
-      <p>C → G2</p>
-      <p>V → A2</p>
-      <p>B → B3</p>
-      <p>N → C3</p>
-      <p>M → D3</p>
-    </div>
-
-    <div>
-      <strong>Black Keys</strong>
-
-      <p>W → C#1</p>
-      <p>E → D#1</p>
-      <p>T → F#1</p>
-      <p>Y → G#1</p>
-      <p>U → A#1</p>
-      <p>O → C#2</p>
-      <p>P → D#2</p>
-    </div>
-  </div>
-
-  <p className={styles.warning}>
-    ⚠️ No guarantee that the notes are in tune.
-  </p>
-</div>
-
+      
     <div className={styles.container}>
       <Image
         src="/keyboard.png"
-        alt="Keyboard"
+        alt="  Keyboard"
         width={1456}
         height={816}
         className={styles.image}
@@ -274,6 +260,47 @@ export default function PianoPage() {
         />
       ))}
     </div>
+
+    
+  <div className={styles.controls}>
+  <h3>Keyboard Controls</h3>
+
+  <div className={styles.controlRow}>
+    <span>A → B1</span>
+    <span>S → C1</span>
+    <span>D → D1</span>
+    <span>F → E1</span>
+    <span>G → F1</span>
+    <span>H → G1</span>
+    <span>J → A1</span>
+    <span>K → B2</span>
+    <span>L → C2</span>
+  </div>
+
+  <div className={styles.controlRow}>
+    <span>Z → D2</span>
+    <span>X → E2</span>
+    <span>C → G2</span>
+    <span>V → A2</span>
+    <span>B → B3</span>
+    <span>N → C3</span>
+    <span>M → D3</span>
+  </div>
+
+  <div className={styles.controlRow}>
+    <span>W → C#1</span>
+    <span>E → D#1</span>
+    <span>T → F#1</span>
+    <span>Y → G#1</span>
+    <span>U → A#1</span>
+    <span>O → C#2</span>
+    <span>P → D#2</span>
+  </div>
+
+  <p className={styles.warning}>
+    ⚠️ No guarantee that the notes are in tune.
+  </p>
+</div>
   </main>
 );
 }
