@@ -1,4 +1,3 @@
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +8,6 @@ html,
 body {
   width: 100%;
   min-height: 100%;
-  
   background: #fff;
 }
 
@@ -39,7 +37,6 @@ body {
   pointer-events: none;
 }
 
-
 .hitbox {
   position: absolute;
   z-index: 10;
@@ -52,46 +49,22 @@ body {
   outline: none;
   padding: 0;
 
-  --glow: rgba(255, 255, 255, 0.4);
-
-  transition:
-    transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 200ms ease,
-    background-color 200ms ease;
+  transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ── Hover ────────────────────────────────────────────────────────────────── */
 .hitbox:hover {
-  transform: scale(1.06);
-
-  background-color: rgba(255, 255, 255, 0.05);
-
-  box-shadow:
-    0 0 0 2px rgba(255, 255, 255, 0.15),
-    0 0 18px 6px var(--glow),
-    inset 0 0 12px rgba(255, 255, 255, 0.06);
-
-  backdrop-filter: brightness(1.15);
-  -webkit-backdrop-filter: brightness(1.15);
+  transform: scale(1.03);
 }
-
 
 .hitbox:active {
   transform: scale(0.97);
-
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.25),
-    0 0 10px 2px var(--glow);
-
   transition-duration: 80ms;
 }
 
-
 .hitbox:focus-visible {
-  outline: 2px dashed rgba(255, 255, 255, 0.6);
+  outline: 2px dashed rgba(0, 0, 0, 0.4);
   outline-offset: 3px;
 }
-
 
 .hitbox-label {
   display: none;
@@ -113,6 +86,8 @@ body {
 }
 
 
+/* DEBUG MODE
+
 [data-debug="true"] .hitbox {
   border: 1.5px dashed rgba(0, 255, 255, 0.7);
   background: rgba(0, 255, 255, 0.05);
@@ -126,6 +101,7 @@ body {
   border-color: #ff0;
 }
 
+*/
 
 @media (max-width: 480px) {
   .hitbox {
@@ -139,7 +115,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .hitbox {
-    transition: box-shadow 100ms ease;
+    transition: none;
   }
 
   .hitbox:hover {
@@ -147,82 +123,377 @@ body {
   }
 }
 
+/* ───────────────────────── */
+/* Hitbox Positions */
+/* ───────────────────────── */
+
 .laptop {
-  top: 56%;
-  left: 67%;
-  width: 20%;
-  height: 28%;
+  top: 56.5%;
+  left: 68%;
+  width: 21.5%;
+  height: 25%;
 }
 
-.cassette {
-  top: 42%;
-  left: 63%;
+.radio {
+  top: 36%;
+  left: 65%;
   width: 17%;
   height: 20%;
 }
 
-.teddy {
-  top: 48%;
-  left: 33%;
-  width: 10%;
+.teddybear {
+  top: 45%;
+  left: 34%;
+  width: 8%;
   height: 16%;
 }
 
-.notebook {
-  top: 70%;
-  left: 4%;
-  width: 13%;
+.about {
+  top: 65%;
+  left: 6%;
+  width: 9%;
   height: 16%;
 }
 
-.music {
-  top: 67%;
-  left: 30%;
+.piano {
+  top: 63%;
+  left: 29%;
   width: 15%;
-  height: 15%;
+  height: 17%;
 }
 
-.redbull {
-  top: 68%;
-  left: 52%;
-  width: 5%;
+.energy {
+  top: 65%;
+  left: 54%;
+  width: 4%;
   height: 12%;
 }
 
-.label {
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  font-family: "Caveat", cursive;
-  font-size: 18px;
-
-  letter-spacing: 1px;
-  white-space: nowrap;
-
-  color: rgba(0,0,0,0.8);
-
-  opacity: 0;
-
-  transition: opacity 0.2s ease;
-}
-
-.hitbox:hover .label {
-  opacity: 1;
-}
-
-.music {
-  top: 67%;
-  left: 30%;
-  width: 15%;
-  height: 15%;
-}
-
-.projects {
+.lego {
   top: 18%;
   left: 69%;
   width: 14%;
   height: 18%;
+}
+
+
+.label {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 20px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  color: rgba(0, 0, 0, 0.75);
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+
+/* Music sheet */
+
+
+/* Books / Substack */
+.books .label {
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Teddy */
+.teddybear .label {
+  bottom: -15px;
+  font-size: 15px;
+  left: 55%;
+  transform: translateX(-80%);
+}
+
+.piano .label{
+  font-size: 30px;
+  bottom: -50px;
+}
+
+.fish .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.about .label{
+  font-size: 30px;
+  bottom: -60px;
+}
+
+.duck .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.cat .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.f1 .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+/* Frog */
+.frog .label {
+  font-size: 15px;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hitbox:hover .label {
+  opacity: 1;
+}
+
+.energy .label {
+  bottom: -60px;
+  left: 50%;
+  font-size: 15px;
+  transform: translateX(-50%);
+}
+
+.pen .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.pencil .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.laptop .label{
+  bottom: -40px;
+  left: 20%;
+  transform: translateX(-50%);
+}
+
+.clapperboard .label{
+  font-size: 28px;
+  bottom: -40px;
+}
+
+.dog .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.flowers .label{
+  font-size: 15px;
+  bottom: -25px;
+}
+
+.filmstrip .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.vader .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.lampbase .label{
+  font-size: 30px;
+}
+
+.lampshade .label {
+  font-size: 28px;
+  bottom: -80px;
+}
+
+.lego .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.chips .label{
+  font-size: 15px;
+  bottom: -30px;
+}
+
+.radio .label{
+  font-size: 30px;
+  bottom: -80px;
+  left: 75px;
+}
+
+.laptop .label{
+  font-size: 30px;
+  bottom: -30px;
+}
+
+.fish {
+  top: 20%;
+  left: 5%;
+  width: 4.3%;
+  height: 8%;
+}
+
+.f1 {
+  top: 22%;
+  left: 11%;
+  width: 5.5%;
+  height: 12.5%;
+}
+
+.duck {
+  top: 12%;
+  left: 25.5%;
+  width: 3.5%;
+  height: 7.5%;
+}
+
+.cat {
+  top: 6%;
+  left: 32%;
+  width: 4.5%;
+  height: 9.5%;
+}
+
+.frog {
+  top: 19%;
+  left: 34.5%;
+  width: 4.5%;
+  height: 8.5%;
+}
+
+
+
+.clapperboard {
+   top: 11%;
+  left: 41%;
+  width: 8%;
+  height: 10.3%;
+}
+
+.lego {
+  top: 7.9%;
+  left: 70.5%;
+  width: 5.6%;
+  height: 11.5%;
+}
+
+.flowers {
+  top: 14.9%;
+  left: 50.5%;
+  width: 3.6%;
+  height: 8.5%;
+
+}
+
+.filmstrip {
+   top: 15.2%;
+  left: 56.5%;
+  width: 5%;
+  height: 9.8%;
+}
+
+.dog {
+ 
+   top: 26.2%;
+  left: 46.8%;
+  width: 4.8%;
+  height: 9.8%;
+
+}
+
+.vader {
+  top: 30.2%;
+  left: 54%;
+  width: 4%;
+  height: 8.2%;
+}
+
+.star {
+  top: 24.2%;
+  left: 72.8%;
+  width: 3%;
+  height: 4.8%;
+}
+
+.books 
+{
+  top: 36.2%;
+  left: 7.8%;
+  width: 23%;
+  height: 20.8%;
+  font-size: 25px;
+}
+
+.pen {
+  top: 42.2%;
+  left: 45.8%;
+  width: 4.4%;
+  height: 14.8%;
+
+}
+
+.pencil{
+  top: 42.2%;
+  left: 50.8%;
+  width: 5.6%;
+  height: 14.8%;
+}
+
+.lampbase {
+  top: 18.2%;
+  left: 90.8%;
+  width: 7.8%;
+  height: 50.8%;
+}
+
+.lampshade {
+  top: 8.2%;
+  left: 80.8%;
+  width: 9.8%;
+  height: 11.2%;
+}
+
+.chips {
+  top: 82.2%;
+  left: 17.8%;
+  width: 6.6%;
+  height: 9.8%;
+}
+
+.desk-signature {
+  position: absolute;
+  bottom: 28px;
+  right: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+
+  color: rgba(0, 0, 0, 0.65);
+
+  pointer-events: none;
+}
+
+.desk-signature p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.desk-signature span {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.desk-signature small {
+  font-size: 18px;
+  opacity: 0.8;
 }
