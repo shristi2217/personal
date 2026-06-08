@@ -79,7 +79,7 @@
   font-size: 4.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  font-family: "Caveat", cursive;
+  
 }
 
 .description {
@@ -104,7 +104,7 @@
 .profileName,
 .profileTag,
 .profileRight {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: Georgia, serif;
 }
 
 .card {
@@ -140,7 +140,7 @@
 
   background: white;
 
-  font-family: "Caveat", cursive;
+  
   font-size: 2rem;
   font-weight: 600;
 
@@ -231,7 +231,7 @@
 }
 
 .card h3 {
-  font-family: "Caveat", cursive;
+  
 
   font-size: 2rem;
 
@@ -261,7 +261,7 @@
 }
 
 .controls h3 {
-  font-family: "Caveat", cursive;
+ 
   font-size: 2rem;
   margin-bottom: 1rem;
 }
