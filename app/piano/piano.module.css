@@ -1,29 +1,30 @@
-/* ── Page ── */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 .main {
   min-height: 100vh;
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
-  justify-content: center;
 
-  background: #ffffff;
+  background: #fff;
+  overflow-y: auto;
 
-  padding: 3rem 1.5rem;
+  padding: 1.5rem 1rem 1rem;
 }
 
-
-/* ── Keyboard wrapper ── */
+/* ── Keyboard wrapper ───────────────────────────────── */
 .container {
   position: relative;
-  width: 100%;
-  max-width: 1600px;
+
+  width: min(2200px, 99vw);
+
   user-select: none;
   -webkit-user-select: none;
+
+  margin: -10rem auto 0;
 }
 
-/* ── Image ── */
+/* ── Image ──────────────────────────────────────────── */
 .image {
   width: 100%;
   height: auto;
@@ -31,7 +32,7 @@
   pointer-events: none;
 }
 
-/* ── Shared key base ── */
+/* ── Shared key base ───────────────────────────────── */
 .key {
   position: absolute;
   cursor: pointer;
@@ -47,14 +48,12 @@
   will-change: transform, background;
 }
 
-
-/* ── Remove hover overlays ── */
 .key:hover {
   background: transparent;
   transform: none;
 }
 
-/* ── White key press ── */
+/* ── Active states ─────────────────────────────────── */
 .whiteKey.active {
   background: rgba(0, 0, 0, 0.08);
   transform: scaleY(0.985);
@@ -62,7 +61,6 @@
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
-/* ── Black key press ── */
 .blackKey.active {
   background: rgba(0, 0, 0, 0.18);
   transform: scaleY(0.985);
@@ -70,10 +68,11 @@
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* ── Header ────────────────────────────────────────── */
 .header {
   text-align: center;
-  margin-bottom: 2rem;
-  max-width: 700px;
+  margin-bottom: 1.5rem;
+  max-width: 850px;
 }
 
 .title {
@@ -84,41 +83,159 @@
 }
 
 .description {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  max-width: 700px;
+  font-size: 1.45rem;
+  line-height: 1.9;
+
+  max-width: 850px;
+
   margin: 0 auto;
+
   color: rgba(0, 0, 0, 0.75);
 }
 
+/* ── Stats Box ─────────────────────────────────────── */
 .infoGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 0.5rem;
+}
 
-  gap: 1.5rem;
-
-  width: 100%;
-  max-width: 900px;
-
-  margin-bottom: 2rem;
+.card,
+.profileName,
+.profileTag,
+.profileRight {
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .card {
-  border: 2px solid rgba(0,0,0,0.08);
+  width: min(900px, 95vw);
+  min-height: 340px;
+  position: relative;
+ 
+  display: flex;
+  align-items: center;
+  gap: 3rem;
 
-  border-radius: 16px;
+  padding: 2.5rem;
 
-  padding: 1.25rem;
+  background: white;
 
-  background: rgba(0,0,0,0.02);
+  border: 3px solid black;
+  border-radius: 12px;
+
+  box-shadow: 6px 6px 0 black;
+
+  margin: 0 auto;
+}
+
+.cardTitle {
+  position: absolute;
+
+  top: -20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 0 16px;
+
+  background: white;
+
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.profileLeft {
+  width: 240px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.profileImage {
+  width: 180px;
+  height: 220px;
+
+  object-fit: cover;
+
+  border: 3px solid black;
+  border-radius: 8px;
+
+  margin-bottom: 1rem;
+}
+
+.profileName {
+   font-size: 1.3rem;
+  font-weight: 600;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.profileTag {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.profileRight {
+  flex: 1;
+ font-family: "IBM Plex Mono", monospace;
+
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 1rem;
+
+  
+  line-height: 1.7;
+}
+
+.profileRight p {
+  margin: 0;
+}
+.profileImage {
+  width: 180px;
+  height: 220px;
+
+
+  object-fit: cover;
+  object-position: 70% 50%;
+}
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+
+    gap: 2rem;
+
+    padding: 2rem;
+  }
+
+  .profileLeft {
+    width: 100%;
+  }
+
+  .profileRight {
+    width: 100%;
+  }
+}
+.card::before,
+.card::after {
+  display: none;
 }
 
 .card h3 {
-  margin-bottom: 0.8rem;
-
-  font-size: 1.2rem;
-
   font-family: "Caveat", cursive;
+
+  font-size: 2rem;
+
+  margin-bottom: 1.2rem;
 }
 
 .card ul {
@@ -127,47 +244,81 @@
 }
 
 .card li {
-  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+
+  line-height: 1.8;
+
+  margin-bottom: 0.4rem;
+}
+
+/* ── Controls ──────────────────────────────────────── */
+.controls {
+  max-width: 1200px;
+
+  margin-top: -14rem;
+
+  text-align: center;
+}
+
+.controls h3 {
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.controlRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.controlRow span {
+  background: white;
+
+  border: 2px solid black;
+
+  border-radius: 999px;
+
+  padding: 12px 18px;
+
+  min-width: 100px;
+
+  font-size: 1.05rem;
+
+  font-weight: 600;
+
+  box-shadow: 3px 3px 0 black;
+}
+
+.controlRow span:hover {
+  transform: translateY(2px);
+
+  box-shadow: 1px 1px 0 black;
 }
 
 .warning {
   margin-top: 1rem;
-
-  font-style: italic;
-
-  opacity: 0.75;
-}
-
-@media (max-width: 768px) {
-  .infoGrid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.controls {
-  margin-top: 2rem;
-  text-align: center;
-  max-width: 900px;
-}
-
-.controls h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-family: "Caveat", cursive;
-}
-
-.controlsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.controlsGrid p {
-  margin: 0.25rem 0;
-}
-
-.warning {
-  margin-top: 1.5rem;
   opacity: 0.7;
   font-style: italic;
+}
+
+/* ── Mobile ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .card {
+    width: 95%;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: 1.15rem;
+  }
+
+  .controls {
+    margin-top: -3rem;
+  }
 }
