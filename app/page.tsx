@@ -9,6 +9,7 @@ export default function HomePage() {
 
   const [isMobile, setIsMobile] = useState(false);
 const [lampOn, setLampOn] = useState(false);
+const [foundStar, setFoundStar] = useState(false);
   useEffect(() => {
     const checkScreen = () => {
       setIsMobile(window.innerWidth < 900);
@@ -130,10 +131,12 @@ const [lampOn, setLampOn] = useState(false);
         <span className="label">darth Vader</span>
       </div>
 
-      <div className={`hitbox star ${lampOn ? "starLit" : ""}`}>
+     <div
+  className={`hitbox star ${lampOn ? "starLit" : ""}`}
+  onClick={() => setFoundStar(true)}
+>
   <span className="label">star</span>
 </div>
-
       {/* MIDDLE */}
 
       <div className="hitbox teddybear">
@@ -152,9 +155,9 @@ const [lampOn, setLampOn] = useState(false);
         <span className="label">pen Stand 2</span>
       </div>
 
-      <div className="hitbox radio">
-        <span className="label">play me</span>
-      </div>
+      <div className={`hitbox radio ${lampOn ? "radioLit" : ""}`}>
+  <span className="label">play me</span>
+</div>
 
       <div className="hitbox chips">
         <span className="label">chips</span>
@@ -210,6 +213,24 @@ const [lampOn, setLampOn] = useState(false);
 >
   <span className="label">lamp</span>
 </div>
+
+{foundStar && (
+  <div className="popupOverlay">
+    <div className="popup">
+      <h2>⭐ You found the star!</h2>
+
+      <p>
+        ⭐ You found the star.
+
+Thanks for exploring.
+      </p>
+
+      <button onClick={() => setFoundStar(false)}>
+        continue exploring
+      </button>
+    </div>
+  </div>
+)}
     </main>
   );
 }
