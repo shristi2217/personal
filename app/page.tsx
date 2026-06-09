@@ -37,6 +37,22 @@ const [foundStar, setFoundStar] = useState(false);
   setLampOn(!lampOn);
 };
 
+const playDuckSound = () => {
+  const ducks = [
+    "/sounds/duck-sound.mp3",
+    "/sounds/duck-sound2.mp3",
+    "/sounds/duck-sound3.mp3",
+    "/sounds/duck-sound4.mp3",
+  ];
+
+  const randomDuck =
+    ducks[Math.floor(Math.random() * ducks.length)];
+
+  const sound = new Audio(randomDuck);
+
+  sound.volume = 0.5;
+  sound.play();
+};
 
 
   if (isMobile) {
@@ -85,10 +101,12 @@ const [foundStar, setFoundStar] = useState(false);
         <span className="label">Fish</span>
       </div>
 
-      <div className="hitbox duck">
-        <span className="label">duck</span>
-      </div>
-
+      <div
+  className="hitbox duck"
+  onClick={playDuckSound}
+>
+  <span className="label">duck</span>
+</div>
       <div className="hitbox cat">
         <span className="label">cat</span>
       </div>
@@ -127,9 +145,17 @@ const [foundStar, setFoundStar] = useState(false);
         <span className="label">lego</span>
       </div>
 
-      <div className="hitbox dog">
-        <span className="label">dog</span>
-      </div>
+      <div
+  className="hitbox dog"
+  onClick={() =>
+    window.open(
+      "https://youtu.be/K6CkfrPvk7Q",
+      "_blank"
+    )
+  }
+>
+  <span className="label">dog</span>
+</div>
 
       <div className="hitbox vader">
         <span className="label">darth Vader</span>
