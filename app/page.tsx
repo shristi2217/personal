@@ -54,6 +54,12 @@ const playDuckSound = () => {
   sound.play();
 };
 
+const playImperialMarch = () => {
+  const sound = new Audio("/sounds/darth-vader.mp3");
+
+  sound.volume = 0.4;
+  sound.play();
+};
 
   if (isMobile) {
     return (
@@ -157,9 +163,12 @@ const playDuckSound = () => {
   <span className="label">dog</span>
 </div>
 
-      <div className="hitbox vader">
-        <span className="label">darth Vader</span>
-      </div>
+      <div
+  className="hitbox vader"
+  onClick={playImperialMarch}
+>
+  <span className="label">darth vader</span>
+</div>
 
      <div
   className={`hitbox star ${lampOn ? "starLit" : ""}`}
