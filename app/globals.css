@@ -189,13 +189,19 @@ body {
 
   white-space: nowrap;
 
-  color: rgba(0, 0, 0, 0.75);
+  
 
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
+.label {
+  color: #2c4a73
 
+
+}
+
+ 
 /* Music sheet */
 
 
@@ -203,51 +209,52 @@ body {
 .books .label {
   bottom: -60px;
   left: 50%;
+  font-size: 20px;
   transform: translateX(-50%);
 }
 
 /* Teddy */
 .teddybear .label {
-  bottom: -15px;
-  font-size: 15px;
+  bottom: -10px;
+  font-size: 12px;
   left: 55%;
   transform: translateX(-80%);
 }
 
 .piano .label{
-  font-size: 30px;
+  font-size: 20px;
   bottom: -50px;
 }
 
 .fish .label{
-  font-size: 15px;
+  font-size: 12px;
   bottom: -30px;
 }
 
 .about .label{
-  font-size: 30px;
-  bottom: -60px;
+  font-size: 20px;
+  bottom: -40px;
 }
 
 .duck .label{
-  font-size: 15px;
-  bottom: -30px;
+  font-size: 12px;
+  bottom: -20px;
 }
 
 .cat .label{
-  font-size: 15px;
-  bottom: -30px;
+  font-size: 12px;
+  bottom: -20px;
 }
 
 .f1 .label{
-  font-size: 15px;
+  font-size: 12px;
   bottom: -30px;
 }
 
 /* Frog */
 .frog .label {
-  font-size: 15px;
-  bottom: -25px;
+  font-size: 12px;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -256,80 +263,86 @@ body {
 }
 
 .energy .label {
-  bottom: -60px;
+  bottom: -40px;
   left: 50%;
-  font-size: 15px;
+  font-size: 12px;
   transform: translateX(-50%);
 }
 
 .pen .label{
-  font-size: 15px;
+  font-size: 10px;
   bottom: -30px;
 }
 
 .pencil .label{
-  font-size: 15px;
+  font-size: 10px;
   bottom: -30px;
 }
 
-.laptop .label{
-  bottom: -40px;
-  left: 20%;
-  transform: translateX(-50%);
-}
+
 
 .clapperboard .label{
-  font-size: 28px;
-  bottom: -40px;
+  font-size: 20px;
+  bottom: -30px;
 }
 
 .dog .label{
-  font-size: 15px;
-  bottom: -30px;
+  font-size: 12px;
+  bottom: -20px;
 }
 
 .flowers .label{
-  font-size: 15px;
-  bottom: -25px;
+  font-size: 12px;
+  bottom: -18px;
 }
 
 .filmstrip .label{
-  font-size: 15px;
+  font-size: 14px;
   bottom: -30px;
 }
 
 .vader .label{
-  font-size: 15px;
-  bottom: -30px;
+  font-size: 12px;
+  bottom: -22px;
 }
 
 .lampbase .label{
-  font-size: 30px;
+  font-size: 22px;
+  left: 35%;
+  bottom: -50px;
 }
 
 .lampshade .label {
-  font-size: 28px;
+  font-size: 22px;
   bottom: -80px;
 }
 
 .lego .label{
-  font-size: 15px;
-  bottom: -30px;
+  font-size: 12px;
+  bottom: -25px;
+  left: 45%;
 }
 
 .chips .label{
   font-size: 15px;
   bottom: -30px;
+  left: 20%;
 }
 
 .radio .label{
-  font-size: 30px;
-  bottom: -80px;
+  font-size: 20px;
+  bottom: -65px;
   left: 75px;
 }
 
 .laptop .label{
-  font-size: 30px;
+  font-size: 25px;
+  bottom: -30px;
+  left: 20%;
+}
+
+.star .label{
+  font-size: 12px;
   bottom: -30px;
 }
 
@@ -484,16 +497,49 @@ body {
 
 .desk-signature p {
   margin: 0;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 600;
 }
 
 .desk-signature span {
-  font-size: 18px;
+  font-size: 12px;
   font-style: italic;
 }
 
 .desk-signature small {
-  font-size: 18px;
+  font-size: 10px;
   opacity: 0.8;
+}
+
+.mobileMessage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.mobileMessage h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.mobileMessage p {
+  max-width: 320px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.mobileButton {
+  border: 1px solid #111;
+  background: white;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
 }
