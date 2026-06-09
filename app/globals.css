@@ -705,3 +705,12 @@ width: 2.5%;
   font-style: italic;
   opacity: 0.7;
 }
+
+.f1Meme {
+  width: 450px;
+  max-width: 80vw;
+
+  border-radius: 8px;
+
+  display: block;
+}
