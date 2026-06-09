@@ -9,6 +9,7 @@ export default function HomePage() {
 
   const [isMobile, setIsMobile] = useState(false);
 const [lampOn, setLampOn] = useState(false);
+const [showFlowerModal, setShowFlowerModal] = useState(false);
 const [foundStar, setFoundStar] = useState(false);
   useEffect(() => {
     const checkScreen = () => {
@@ -103,9 +104,12 @@ const [foundStar, setFoundStar] = useState(false);
         <span className="label">films</span>
       </div>
 
-      <div className="hitbox flowers">
-        <span className="label">flowers</span>
-      </div>
+      <div
+  className="hitbox flowers"
+  onClick={() => setShowFlowerModal(true)}
+>
+  <span className="label">flowers</span>
+</div>
 
       <div
         className="hitbox filmstrip"
@@ -220,7 +224,7 @@ const [foundStar, setFoundStar] = useState(false);
       <h2>⭐ You found the star!</h2>
 
       <p>
-        ⭐ You found the star.
+        
 
 Thanks for exploring.
       </p>
@@ -228,6 +232,51 @@ Thanks for exploring.
       <button onClick={() => setFoundStar(false)}>
         continue exploring
       </button>
+    </div>
+  </div>
+)}
+
+{showFlowerModal && (
+  <div
+    className="modalOverlay"
+    onClick={() => setShowFlowerModal(false)}
+  >
+    <div
+      className="modalContent"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        className="closeButton"
+        onClick={() => setShowFlowerModal(false)}
+      >
+        ×
+      </button>
+
+      <pre className="asciiFlower">
+{`  /-_-\\
+ /  /  \\
+/  /    \\
+\\  \\    /
+ \\__\\__/
+    \\\\
+    -\\\\    ____
+      \\\\  /   /
+____   \\\\/___/
+\\   \\ -//
+ \\___\\//-
+    -//
+     \\\\
+     //
+    //-
+  -//
+  //
+  \\\\
+   \\\\`}
+      </pre>
+
+      <p className="flowerCaption">
+        for no reason in particular 🌼
+      </p>
     </div>
   </div>
 )}
