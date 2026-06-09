@@ -71,6 +71,7 @@ const [lampOn, setLampOn] = useState(false);
         className="bg"
         draggable="false"
       />
+      {lampOn && <div className="lampDarkness" />}
 {lampOn && <div className="lampGlow" />}
       {/* TOP */}
 
@@ -129,9 +130,9 @@ const [lampOn, setLampOn] = useState(false);
         <span className="label">darth Vader</span>
       </div>
 
-      <div className="hitbox star">
-        <span className="label">star</span>
-      </div>
+      <div className={`hitbox star ${lampOn ? "starLit" : ""}`}>
+  <span className="label">star</span>
+</div>
 
       {/* MIDDLE */}
 
