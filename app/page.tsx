@@ -3,11 +3,12 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+
 export default function HomePage() {
   const router = useRouter();
 
   const [isMobile, setIsMobile] = useState(false);
-
+const [lampOn, setLampOn] = useState(false);
   useEffect(() => {
     const checkScreen = () => {
       setIsMobile(window.innerWidth < 900);
@@ -20,6 +21,21 @@ export default function HomePage() {
     return () =>
       window.removeEventListener("resize", checkScreen);
   }, []);
+
+  const toggleLamp = () => {
+  const sound = new Audio(
+    lampOn
+      ? "/sounds/lamp-off-click.mp3"
+      : "/sounds/lamp-on-click.mp3"
+  );
+
+  sound.volume = 0.3;
+  sound.play();
+
+  setLampOn(!lampOn);
+};
+
+
 
   if (isMobile) {
     return (
@@ -55,7 +71,7 @@ export default function HomePage() {
         className="bg"
         draggable="false"
       />
-
+{lampOn && <div className="lampGlow" />}
       {/* TOP */}
 
       <div className="hitbox f1">
@@ -172,19 +188,27 @@ export default function HomePage() {
         <span className="label">projects</span>
       </div>
 
-      <div className="hitbox lampshade">
-        <span className="label">lamp</span>
-      </div>
-
-      <div className="hitbox lampbase">
-        <span className="label">lamp</span>
-      </div>
+      
 
       <div className="desk-signature">
         <p>my desk</p>
         <span>please ignore the mess</span>
         <span>— shristi sharma</span>
       </div>
+
+    <div
+  className="hitbox lampshade"
+  onClick={toggleLamp}
+>
+  <span className="label">lamp</span>
+</div>
+
+<div
+  className="hitbox lampbase"
+  onClick={toggleLamp}
+>
+  <span className="label">lamp</span>
+</div>
     </main>
   );
 }

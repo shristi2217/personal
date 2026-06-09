@@ -543,3 +543,27 @@ body {
   font-size: 1rem;
   font-family: inherit;
 }
+
+.lampGlow {
+  position: absolute;
+
+  top: -10%;
+  right: -5%;
+
+  width: 55%;
+  height: 70%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 223, 120, 0.55) 0%,
+    rgba(255, 223, 120, 0.35) 35%,
+    rgba(255, 223, 120, 0.15) 60%,
+    transparent 100%
+  );
+
+  pointer-events: none;
+
+  z-index: 1;
+}
