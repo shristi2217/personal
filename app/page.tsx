@@ -8,6 +8,7 @@ export default function HomePage() {
   const router = useRouter();
 
   const [isMobile, setIsMobile] = useState(false);
+  const [showF1Modal, setShowF1Modal] = useState(false);
 const [lampOn, setLampOn] = useState(false);
 const [showFlowerModal, setShowFlowerModal] = useState(false);
 const [foundStar, setFoundStar] = useState(false);
@@ -60,7 +61,14 @@ const playImperialMarch = () => {
   sound.volume = 0.4;
   sound.play();
 };
+const openF1Modal = () => {
+  const sound = new Audio("/sounds/f1-car.mp3");
 
+  sound.volume = 0.4;
+  sound.play();
+
+  setShowF1Modal(true);
+};
   if (isMobile) {
     return (
       <main className="mobileMessage">
@@ -99,9 +107,12 @@ const playImperialMarch = () => {
 {lampOn && <div className="lampGlow" />}
       {/* TOP */}
 
-      <div className="hitbox f1">
-        <span className="label">f1</span>
-      </div>
+     <div
+  className="hitbox f1"
+  onClick={openF1Modal}
+>
+  <span className="label">f1</span>
+</div>
 
       <div className="hitbox fish">
         <span className="label">Fish</span>
@@ -315,6 +326,31 @@ ____   \\\\/___/
     </div>
   </div>
 )}
+{showF1Modal && (
+  <div
+    className="modalOverlay"
+    onClick={() => setShowF1Modal(false)}
+  >
+    <div
+      className="modalContent"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        className="closeButton"
+        onClick={() => setShowF1Modal(false)}
+      >
+        ×
+      </button>
+
+      <img
+        src="/ferrarimeme.JPG"
+        alt="Ferrari meme"
+        className="f1Meme"
+      />
+    </div>
+  </div>
+)}
+
     </main>
   );
 }
