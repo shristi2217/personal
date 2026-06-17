@@ -114,9 +114,11 @@ const openF1Modal = () => {
   
 </div>
 
-      <div className="hitbox fish">
-        
-      </div>
+      <div
+  className="hitbox fish"
+  onClick={() => router.push("/fish")}
+>
+</div>
 
       <div
   className="hitbox duck"
