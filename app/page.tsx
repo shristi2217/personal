@@ -111,25 +111,25 @@ const openF1Modal = () => {
   className="hitbox f1"
   onClick={openF1Modal}
 >
-  <span className="label">f1</span>
+  
 </div>
 
       <div className="hitbox fish">
-        <span className="label">Fish</span>
+        
       </div>
 
       <div
   className="hitbox duck"
   onClick={playDuckSound}
 >
-  <span className="label">duck</span>
+  
 </div>
       <div className="hitbox cat">
-        <span className="label">cat</span>
+        
       </div>
 
       <div className="hitbox frog">
-        <span className="label">frog</span>
+        
       </div>
 
       <div
@@ -143,7 +143,7 @@ const openF1Modal = () => {
   className="hitbox flowers"
   onClick={() => setShowFlowerModal(true)}
 >
-  <span className="label">flowers</span>
+  
 </div>
 
       <div
@@ -155,11 +155,11 @@ const openF1Modal = () => {
           )
         }
       >
-        <span className="label">letterboxd</span>
+        
       </div>
 
       <div className="hitbox lego">
-        <span className="label">lego</span>
+        
       </div>
 
       <div
@@ -171,38 +171,38 @@ const openF1Modal = () => {
     )
   }
 >
-  <span className="label">dog</span>
+  
 </div>
 
       <div
   className="hitbox vader"
   onClick={playImperialMarch}
 >
-  <span className="label">darth vader</span>
+  
 </div>
 
      <div
-  className={`hitbox star ${lampOn ? "starLit" : ""}`}
+  className="hitbox star"
   onClick={() => setFoundStar(true)}
 >
-  <span className="label">star</span>
+  
 </div>
       {/* MIDDLE */}
 
       <div className="hitbox teddybear">
-        <span className="label">teddy bear</span>
+       
       </div>
 
       <div className="hitbox books">
-        <span className="label">substack</span>
+        
       </div>
 
       <div className="hitbox pen">
-        <span className="label">pen Stand 1</span>
+        
       </div>
 
       <div className="hitbox pencil">
-        <span className="label">pen Stand 2</span>
+        
       </div>
 
       <div className={`hitbox radio ${lampOn ? "radioLit" : ""}`}>
@@ -210,7 +210,7 @@ const openF1Modal = () => {
 </div>
 
       <div className="hitbox chips">
-        <span className="label">chips</span>
+        
       </div>
 
       {/* BOTTOM */}
@@ -227,7 +227,7 @@ const openF1Modal = () => {
       </div>
 
       <div className="hitbox energy">
-        <span className="label">energy</span>
+        
       </div>
 
       <div
