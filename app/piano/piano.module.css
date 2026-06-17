@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
 .main {
   min-height: 100vh;
 
@@ -104,7 +104,7 @@
 .profileName,
 .profileTag,
 .profileRight {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Essays1743", serif;
 }
 
 .card {
@@ -183,7 +183,7 @@
 
 .profileRight {
   flex: 1;
- font-family: "IBM Plex Mono", monospace;
+ font-family: "Essays1743", serif;
 
   font-size: 1.2rem;
   display: flex;

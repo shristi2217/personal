@@ -222,9 +222,12 @@ const openF1Modal = () => {
       </div>
 
       <div
-        className="hitbox piano"
-        onClick={() => router.push("/piano")}
-      >
+  className="hitbox piano"
+  onClick={() => {
+    console.log("PIANO CLICKED");
+    router.push("/piano");
+  }}
+>
         <span className="label">music</span>
       </div>
 

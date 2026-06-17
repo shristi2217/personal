@@ -74,7 +74,7 @@ body {
   left: 2px;
 
   font-size: 9px;
-  font-family: "Courier New", monospace;
+  font-family: "Essays1743", serif;
   font-weight: 700;
 
   color: #0ff;
@@ -184,7 +184,7 @@ body {
 
   transform: translateX(-50%);
 
-  font-family: "Inter", sans-serif;
+  font-family: "Essays1743", serif;
   font-size: 24px;
   font-weight: 500;
 
@@ -208,7 +208,7 @@ body {
 
   font-size: 24px;
 
-  bottom: -60px;
+  bottom: -80px;
 
 }
 
@@ -638,7 +638,7 @@ width: 2.5%;
 }
 
 .asciiFlower {
-  font-family: "Courier New", monospace;
+  font-family: "Essays1743", serif;
   font-size: 16px;
   line-height: 1.1;
   white-space: pre;
