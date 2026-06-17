@@ -176,175 +176,61 @@ body {
   height: 18%;
 }
 
-
 .label {
   position: absolute;
-  bottom: -45px;
+
   left: 50%;
+  bottom: -42px;
 
   transform: translateX(-50%);
 
-  font-size: 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
   font-weight: 500;
+
+  color: #2c4a73;
 
   white-space: nowrap;
 
-  
-
   opacity: 0;
   transition: opacity 0.2s ease;
+
+  pointer-events: none;
 }
 
-.label {
-  color: #2c4a73
-
-
-}
-
- 
-/* Music sheet */
-
-
-/* Books / Substack */
-.books .label {
-  bottom: -60px;
-  left: 50%;
-  font-size: 20px;
-  transform: translateX(-50%);
-}
-
-/* Teddy */
-.teddybear .label {
-  bottom: -10px;
-  font-size: 12px;
-  left: 55%;
-  transform: translateX(-80%);
-}
-
-.piano .label{
-  font-size: 20px;
-  bottom: -50px;
-}
-
-.fish .label{
-  font-size: 12px;
-  bottom: -30px;
-}
-
-.about .label{
-  font-size: 20px;
-  bottom: -40px;
-}
-
-.duck .label{
-  font-size: 12px;
-  bottom: -20px;
-}
-
-.cat .label{
-  font-size: 12px;
-  bottom: -20px;
-}
-
-.f1 .label{
-  font-size: 12px;
-  bottom: -30px;
-}
-
-/* Frog */
-.frog .label {
-  font-size: 12px;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .hitbox:hover .label {
   opacity: 1;
 }
 
-.energy .label {
-  bottom: -40px;
-  left: 50%;
-  font-size: 12px;
-  transform: translateX(-50%);
+.clapperboard .label {
+  font-size: 24px;
 }
 
-.pen .label{
-  font-size: 10px;
-  bottom: -30px;
+.piano .label {
+  font-size: 24px;
 }
 
-.pencil .label{
-  font-size: 10px;
-  bottom: -30px;
+.radio .label {
+  font-size: 24px;
 }
 
-
-
-.clapperboard .label{
-  font-size: 20px;
-  bottom: -30px;
+.laptop .label {
+  font-size: 28px;
 }
 
-.dog .label{
-  font-size: 12px;
-  bottom: -20px;
+.books .label {
+  font-size: 24px;
 }
 
-.flowers .label{
-  font-size: 12px;
-  bottom: -18px;
+.about .label {
+  font-size: 24px;
 }
 
-.filmstrip .label{
-  font-size: 14px;
-  bottom: -30px;
-}
-
-.vader .label{
-  font-size: 12px;
-  bottom: -22px;
-}
-
-.lampbase .label{
+.lampshade .label,
+.lampbase .label {
   font-size: 22px;
-  left: 35%;
-  bottom: -50px;
 }
 
-.lampshade .label {
-  font-size: 22px;
-  bottom: -80px;
-}
-
-.lego .label{
-  font-size: 12px;
-  bottom: -25px;
-  left: 45%;
-}
-
-.chips .label{
-  font-size: 15px;
-  bottom: -30px;
-  left: 20%;
-}
-
-.radio .label{
-  font-size: 20px;
-  bottom: -65px;
-  left: 75px;
-}
-
-.laptop .label{
-  font-size: 25px;
-  bottom: -30px;
-  left: 20%;
-}
-
-.star .label{
-  font-size: 12px;
-  bottom: -30px;
-}
 
 .fish {
   top: 20%;
@@ -593,6 +479,20 @@ width: 2.5%;
   transform: scale(1.05);
 }
 
+.radio .label {
+  bottom: -85px;
+  left: 30%;
+}
+
+.lampshade .label{
+  bottom: -90px;
+  left: 50%;
+}
+
+.lampbase .label{
+  bottom: -50px;
+  left: 40%;
+}
 
 
 
@@ -714,3 +614,4 @@ width: 2.5%;
 
   display: block;
 }
+
