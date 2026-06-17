@@ -202,33 +202,78 @@ body {
   opacity: 1;
 }
 
+
+
 .clapperboard .label {
+
   font-size: 24px;
+
+  bottom: -60px;
+
 }
+
+
 
 .piano .label {
+
   font-size: 24px;
+
+  bottom: -90px;
+
 }
+
+
 
 .radio .label {
+
   font-size: 24px;
+
+  bottom: -80px;
+
+  left: 30%;
+
 }
+
+
 
 .laptop .label {
+
   font-size: 28px;
+
+  left: 30%;
+
+  bottom: -70px;
+
 }
+
+
 
 .books .label {
+
   font-size: 24px;
+
 }
+
+
 
 .about .label {
+
   font-size: 24px;
+
+  bottom: -80px;
+
 }
 
+
+
 .lampshade .label,
+
 .lampbase .label {
+
   font-size: 22px;
+
+
+
 }
 
 
