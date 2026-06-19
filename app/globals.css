@@ -1,3 +1,55 @@
+@font-face {
+  font-family: "Essays1743";
+  src: url("/fonts/essays1743/Essays1743.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Essays1743";
+  src: url("/fonts/essays1743/Essays1743-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Essays1743";
+  src: url("/fonts/essays1743/Essays1743-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Essays1743";
+  src: url("/fonts/essays1743/Essays1743-BoldItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700;
+}
+
+html,
+body {
+  font-family: "Essays1743", serif !important;
+}
+h1,
+h2,
+h3,
+.title,
+.pageTitle,
+.cardTitle {
+  font-family: "Essays1743", serif !important;
+  font-weight: 700;
+}
+
+p,
+span,
+button,
+label,
+input,
+textarea,
+li,
+a {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -206,9 +258,9 @@ body {
 
 .clapperboard .label {
 
-  font-size: 24px;
+  font-size: 20px;
 
-  bottom: -80px;
+  bottom: -40px;
 
 }
 
@@ -218,7 +270,7 @@ body {
 
   font-size: 24px;
 
-  bottom: -90px;
+  bottom: -60px;
 
 }
 
@@ -228,7 +280,7 @@ body {
 
   font-size: 24px;
 
-  bottom: -80px;
+  bottom: -60px;
 
   left: 30%;
 
@@ -242,7 +294,7 @@ body {
 
   left: 30%;
 
-  bottom: -70px;
+  bottom: -60px;
 
 }
 
@@ -260,7 +312,7 @@ body {
 
   font-size: 24px;
 
-  bottom: -80px;
+  bottom: -60px;
 
 }
 
@@ -419,29 +471,45 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 2px;
 
-  color: rgba(0, 0, 0, 0.65);
+  gap: 0;
+
+  color: rgba(0, 0, 0, 0.7);
 
   pointer-events: none;
+
+  line-height: 1.3;
 }
 
 .desk-signature p {
   margin: 0;
-  font-size: 20px;
-  font-weight: 600;
+
+  font-size: 23px;
+  font-weight: 700;
+
+  letter-spacing: -2px;
+
+  margin-bottom: 4px;
 }
 
 .desk-signature span {
-  font-size: 12px;
+  font-size: 19px;
   font-style: italic;
+
+  letter-spacing: -1px;
+
+  margin: 0;
 }
 
 .desk-signature small {
-  font-size: 10px;
-  opacity: 0.8;
-}
+  font-size: 17px;
 
+  letter-spacing: -1px;
+
+  opacity: 0.8;
+
+  margin: 0;
+}
 .mobileMessage {
   min-height: 100vh;
   display: flex;
