@@ -10,21 +10,73 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [showF1Modal, setShowF1Modal] = useState(false);
 const [lampOn, setLampOn] = useState(false);
+const [adsEnabled, setAdsEnabled] = useState(false);
+const [ads, setAds] = useState<
+  {
+    id: number;
+    message: string;
+    top: number;
+    left: number;
+  }[]
+>([]);
+
+const adMessages = [
+  "Cute ducks near you!!.",
+  "You won 700 Red Bulls.",
+  "Local fish thinks you're cool.",
+  "One weird trick to pass calculus.",
+  "FREE GARLIC BREAD!",
+  "This frog has your IP address.",
+  "Download more RAM now.",
+  "You are today's lucky winner.",
+  "Click here for emotional damage.",
+  "Hydration levels critical.",
+   "Touch grass immediately.",
+    "You have 14 unfinished projects.",
+    "Error 404: Motivation not found.",
+    "Congratulations. Nothing happened."
+];
 const [showFlowerModal, setShowFlowerModal] = useState(false);
-const [foundStar, setFoundStar] = useState(false);
-  useEffect(() => {
-    const checkScreen = () => {
-      setIsMobile(window.innerWidth < 900);
-    };
 
-    checkScreen();
+useEffect(() => {
+  const checkScreen = () => {
+    setIsMobile(window.innerWidth < 900);
+  };
 
-    window.addEventListener("resize", checkScreen);
+  checkScreen();
 
-    return () =>
-      window.removeEventListener("resize", checkScreen);
-  }, []);
+  window.addEventListener("resize", checkScreen);
 
+  return () =>
+    window.removeEventListener("resize", checkScreen);
+}, []);
+
+const startAds = () => {
+  setAdsEnabled(true);
+};
+
+useEffect(() => {
+  if (!adsEnabled) return;
+
+  const interval = setInterval(() => {
+    setAds((prev) => [
+      ...prev,
+      {
+        id: Date.now() + Math.random(),
+        message:
+          adMessages[
+            Math.floor(
+              Math.random() * adMessages.length
+            )
+          ],
+       top: Math.random() * (window.innerHeight - 250),
+left: Math.random() * (window.innerWidth - 380),
+      },
+    ]);
+  }, 150);
+
+  return () => clearInterval(interval);
+}, [adsEnabled]);
   const toggleLamp = () => {
   const sound = new Audio(
     lampOn
@@ -183,12 +235,13 @@ const openF1Modal = () => {
   
 </div>
 
-     <div
+    <div
   className="hitbox star"
-  onClick={() => setFoundStar(true)}
+  onClick={startAds}
 >
-  
 </div>
+
+
       {/* MIDDLE */}
 
       <div className="hitbox teddybear">
@@ -269,23 +322,7 @@ const openF1Modal = () => {
   <span className="label">lamp</span>
 </div>
 
-{foundStar && (
-  <div className="popupOverlay">
-    <div className="popup">
-      <h2>⭐ You found the star!</h2>
 
-      <p>
-        
-
-Thanks for exploring.
-      </p>
-
-      <button onClick={() => setFoundStar(false)}>
-        continue exploring
-      </button>
-    </div>
-  </div>
-)}
 
 {showFlowerModal && (
   <div
@@ -355,7 +392,53 @@ ____   \\\\/___/
     </div>
   </div>
 )}
+{ads.map((ad) => (
+  <div
+  key={ad.id}
+  className="fakePopup"
+ style={{
+  top: `${ad.top}px`,
+  left: `${ad.left}px`,
+}}
+>
+  <div className="popupHeader">
+    <span>Windows</span>
 
+    <div className="closeX">
+      ✕
+    </div>
+  </div>
+
+  <div className="popupBody">
+    <div className="popupInner">
+      <div className="popupIcon">
+        ⚠️
+      </div>
+
+      <div className="popupText">
+        {ad.message}
+      </div>
+    </div>
+
+    <button className="popupButton">
+      OK
+    </button>
+  </div>
+</div>
+))}
+
+{adsEnabled && (
+  <button
+    className="leaveMeAlone"
+    onClick={() => {
+      setAdsEnabled(false);
+      setAds([]);
+    }}
+  >
+    LEAVE ME ALONE
+  </button>
+)}
     </main>
   );
-}
+  }
+
