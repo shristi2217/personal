@@ -1,9 +1,12 @@
 "use client";
 
+// @ts-ignore: side-effect CSS import without type declarations
 import "./fish.css";
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function FishPage() {
+  const router = useRouter();
   const [showDrawModal, setShowDrawModal] = useState(false);
   const [userFish, setUserFish] = useState<string[]>([]);
 
@@ -82,6 +85,13 @@ export default function FishPage() {
       <img src="/fish/fish4.png" alt="" className="fish fish4" />
       <img src="/fish/fish5.png" alt="" className="fish fish5" />
       <img src="/fish/fish6.png" alt="" className="fish fish6" />
+      <img src="/fish/fish7.png" alt="" className="fish fish7" />
+      <img src="/fish/fish8.png" alt="" className="fish fish8" />
+<img src="/fish/fish2.png" alt="" className="fish fish9" />
+<img src="/fish/fish8.png" alt="" className="fish fish10" />
+<img src="/fish/fish4.png" alt="" className="fish fish11" />
+<img src="/fish/fish1.png" alt="" className="fish fish12" />
+
 
       {/* User fish */}
 
@@ -98,7 +108,16 @@ export default function FishPage() {
         />
       ))}
 
+      <button
+  className="backToDesk"
+  onClick={() => router.push("/")}
+>
+  ← back to desk
+</button>
+
       {/* Bubbles */}
+
+      
 
       <div className="bubble bubble1"></div>
       <div className="bubble bubble2"></div>
