@@ -138,7 +138,7 @@ body {
 }
 
 
-/* DEBUG MODE
+ /* DEBUG MODE
 
 [data-debug="true"] .hitbox {
   border: 1.5px dashed rgba(0, 255, 255, 0.7);
@@ -152,8 +152,8 @@ body {
 [data-debug="true"] .hitbox:hover {
   border-color: #ff0;
 }
-
 */
+
 
 @media (max-width: 480px) {
   .hitbox {
@@ -329,7 +329,7 @@ body {
 }
 
 
-.fish {
+.fish-page {
   top: 20%;
   left: 5%;
   width: 4.3%;
