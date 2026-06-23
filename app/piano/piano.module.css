@@ -251,6 +251,31 @@
   margin-bottom: 0.4rem;
 }
 
+.backToDesk {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+
+  background: none;
+  border: none;
+
+  font-family: "Essays1743", serif;
+  font-size: 20px;
+
+  color: #2c4a73;
+
+  cursor: pointer;
+
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  z-index: 999;
+}
+
+.backToDesk:hover {
+  transform: translateX(-4px);
+  opacity: 0.8;
+}
 /* ── Controls ──────────────────────────────────────── */
 .controls {
   max-width: 1200px;
@@ -322,3 +347,4 @@
     margin-top: -3rem;
   }
 }
+

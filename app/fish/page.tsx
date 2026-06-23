@@ -70,12 +70,7 @@ export default function FishPage() {
   return (
     <main className="fishPage">
 
-      <button
-        className="addFishButton"
-        onClick={() => setShowDrawModal(true)}
-      >
-        + Add Fish
-      </button>
+     
 
       {/* Original fish */}
 

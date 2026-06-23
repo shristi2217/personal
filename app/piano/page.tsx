@@ -3,6 +3,7 @@
 import { useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './piano.module.css';
+import { useRouter } from "next/navigation";
 
 
 /* ── WHITE KEYS ── */
@@ -83,6 +84,7 @@ const BLACK_KEYS = [
 };
 
 export default function PianoPage() {
+  const router = useRouter();
   const soundsRef = useRef<Record<string, HTMLAudioElement>>({});
 
   /* ── LOAD AUDIO ── */
@@ -168,8 +170,16 @@ export default function PianoPage() {
 
   return (
   <main className={styles.main}>
+    <button
+  className={styles.backToDesk}
+  onClick={() => router.replace("/")}
+>
+  ← back to desk
+</button>
     <div className={styles.header}>
       <h1 className={styles.title}>My Little Keyboard</h1>
+
+      
 
       <p className={styles.description}>
         I've been learning the keyboard since I was 5. I haven't touched it
@@ -179,6 +189,8 @@ export default function PianoPage() {
     </div>
      <div className={styles.infoGrid}>
   <div className={styles.card}>
+
+
 
     <div className={styles.cardTitle}>
   Keyboard Stats
@@ -215,6 +227,7 @@ export default function PianoPage() {
 </div>
 
 
+    
       
     <div className={styles.container}>
       <Image
