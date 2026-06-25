@@ -121,9 +121,7 @@ export default function FilmsPage() {
 
       <h1 className={styles.title}>My Film Collection</h1>
 
-      <p className={styles.description}>
-        Movies that stayed with me for days, weeks, and occasionally years.
-      </p>
+      
 
       {/* TOP STRIP */}
       <div className={styles.filmStrip}>
@@ -163,13 +161,11 @@ export default function FilmsPage() {
   <h2>Letterboxd Corner</h2>
 
   <div className={styles.letterboxdCard}>
-    <p>
-      My watchlist is longer than my lifespan.
-    </p>
+    
 
     <p>
       ★ Coming soon: recent watches, favourites,
-      reviews, and questionable ratings.
+      reviews, and ratings.
     </p>
 
     <a
