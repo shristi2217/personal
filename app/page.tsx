@@ -10,6 +10,15 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [showF1Modal, setShowF1Modal] = useState(false);
 const [lampOn, setLampOn] = useState(false);
+const [redBullRain, setRedBullRain] = useState(false);
+
+const summonRedBulls = () => {
+  setRedBullRain(true);
+
+  setTimeout(() => {
+    setRedBullRain(false);
+  }, 5000);
+};
 const [adsEnabled, setAdsEnabled] = useState(false);
 const [ads, setAds] = useState<
   {
@@ -50,6 +59,16 @@ useEffect(() => {
   return () =>
     window.removeEventListener("resize", checkScreen);
 }, []);
+
+const [showFrog, setShowFrog] = useState(false);
+
+const summonFrog = () => {
+  setShowFrog(true);
+
+  setTimeout(() => {
+    setShowFrog(false);
+  }, 4000);
+};
 
 const startAds = () => {
   setAdsEnabled(true);
@@ -285,9 +304,10 @@ const openF1Modal = () => {
         <span className="label">music</span>
       </div>
 
-      <div className="hitbox energy">
-        
-      </div>
+      <div
+  className="hitbox energy"
+  onClick={summonRedBulls}
+></div>
 
       <div
         className="hitbox laptop"
@@ -439,6 +459,26 @@ ____   \\\\/___/
     LEAVE ME ALONE
   </button>
 )}
+
+{redBullRain &&
+  Array.from({ length: 40 }).map((_, i) => {
+    const can = (i % 3) + 1;
+
+    return (
+      <img
+        key={i}
+        src={`/redbull${can}.png`}
+        alt=""
+        className="fallingRedBull"
+        style={{
+          left: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 1.5}s`,
+          animationDuration: `${2.5 + Math.random() * 2}s`,
+          rotate: `${Math.random() * 360}deg`,
+        }}
+      />
+    );
+  })}
     </main>
   );
   }

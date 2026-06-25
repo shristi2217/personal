@@ -280,3 +280,29 @@
 
   box-shadow: 2px 2px 0 black;
 }
+
+.backToDesk {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+
+  background: none;
+  border: none;
+
+  font-family: "Essays1743", serif;
+  font-size: 22px;
+
+  color: #2c4a73;
+
+  cursor: pointer;
+
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  z-index: 999;
+}
+
+.backToDesk:hover {
+  transform: translateX(-4px);
+  opacity: 0.8;
+}
