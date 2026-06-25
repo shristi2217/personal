@@ -208,9 +208,7 @@ export default function PianoPage() {
       Shristi Sharma
     </div>
 
-    <div className={styles.profileTag}>
-      Questionably active pianist
-    </div>
+    
   </div>
 
   <div className={styles.profileRight}>
