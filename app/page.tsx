@@ -156,6 +156,7 @@ const openF1Modal = () => {
         draggable="false"
       />
       {lampOn && <div className="lampDarkness" />}
+      {lampOn && <div className="lampGlow" />}
 {lampOn && <div className="lampGlow" />}
       {/* TOP */}
 

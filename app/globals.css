@@ -543,39 +543,44 @@ body {
   font-family: inherit;
 }
 
+
+.lampDarkness {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.38);
+
+  pointer-events: none;
+  z-index: 1;
+}
+
 .lampGlow {
   position: absolute;
 
-  top: 12%;
-  right: 8%;
+  top: 0;
+  right: 0;
 
-  width: 650px;
-  height: 650px;
+  width: 900px;
+  height: 900px;
 
   border-radius: 50%;
 
   background: radial-gradient(
-    circle,
-    rgba(255, 230, 140, 0.35) 0%,
-    rgba(255, 230, 140, 0.18) 35%,
-    rgba(255, 230, 140, 0.08) 55%,
-    transparent 80%
+    circle at 40% 30%,
+    rgba(255, 250, 220, 0.55) 0%,
+    rgba(255, 245, 200, 0.25) 25%,
+    rgba(255, 245, 200, 0.10) 50%,
+    transparent 75%
   );
+
+  filter: blur(30px);
 
   pointer-events: none;
   z-index: 2;
 }
 
-  .lampDarkness {
-  position: absolute;
-  inset: 0;
 
-  background: rgba(0,0,0,0.58);
 
-  z-index: 1;
-
-  pointer-events: none;
-}
 
 .starLit {
   background: rgba(255,216,77,.3);
@@ -591,6 +596,13 @@ width: 2.5%;
 
   transform: scale(1.05);
 }
+
+
+.lampGlow,
+.lampDarkness {
+  transition: opacity 0.35s ease;
+}
+
 
 .radio .label {
   bottom: -85px;

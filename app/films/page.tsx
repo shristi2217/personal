@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import styles from './films.module.css';
+import { useRouter } from "next/navigation";
 
 const topFilms = [
   {
@@ -108,6 +109,12 @@ const bottomFilms = [
 export default function FilmsPage() {
   return (
     <main className={styles.main}>
+      <button
+  className={styles.backToDesk}
+  onClick={() => router.replace("/")}
+>
+  ← back to desk
+</button>
       <h1 className={styles.title}>My Film Collection</h1>
 
       <p className={styles.description}>

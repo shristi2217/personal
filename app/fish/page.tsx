@@ -71,7 +71,13 @@ export default function FishPage() {
     <main className="fishPage">
 
      
-
+    <button
+      className="addFishButton"
+      onClick={() => setShowDrawModal(true)}
+    >
+      + Add Fish
+    </button>
+    
       {/* Original fish */}
 
       <img src="/fish/fish1.png" alt="" className="fish fish1" />
