@@ -578,7 +578,21 @@ body {
   pointer-events: none;
   z-index: 2;
 }
+.closeButton {
+  position: absolute;
+  top: -8px;
+  right: -8px;
 
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid #111;
+  border-radius: 50%;
+  background: white;
+
+  font-size: 18px;
+  cursor: pointer;
+}
 
 
 
