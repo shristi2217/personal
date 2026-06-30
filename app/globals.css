@@ -494,7 +494,7 @@ body {
 
 .desk-signature span {
   font-size: 19px;
-  font-style: italic;
+  
 
   letter-spacing: -1px;
 
@@ -510,6 +510,8 @@ body {
 
   margin: 0;
 }
+
+
 .mobileMessage {
   min-height: 100vh;
   display: flex;
@@ -946,28 +948,109 @@ padding: 10px 24px;
     opacity: 1;
   }
 }
-
-.fallingRedBull {
+.redBullContainer {
   position: fixed;
-  top: -120px;
-
-  width: 70px;
-  height: auto;
-
-  pointer-events: none;
+  inset: 0;
   z-index: 9999;
+  pointer-events: none;
+}
 
-  animation: redBullFall linear forwards;
+.redBullContainer canvas {
+  background: transparent !important;
 }
 
 @keyframes redBullFall {
   from {
-    transform: translateY(-150px);
+    transform: translateY(-200px) rotate(0deg);
   }
 
   to {
-    transform: translateY(calc(100vh + 200px))
-               rotate(720deg);
+    transform: translateY(75vh) rotate(540deg);
   }
 }
 
+@keyframes redBullFall {
+  0% {
+    transform: translateY(-200px) rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translateY(50vh)
+      translateX(30px)
+      rotate(180deg);
+  }
+
+  100% {
+    transform:
+      translateY(120vh)
+      translateX(-20px)
+      rotate(360deg);
+  }
+}
+
+@keyframes dropCan {
+  from {
+    top: -120px;
+  }
+
+  to {
+    top: calc(100vh - 100px);
+  }
+}
+@keyframes fall {
+  from {
+    top: -120px;
+  }
+}
+
+.fallenCan {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  animation: redBullDrop 1.2s ease-out forwards;
+}
+
+@keyframes redBullDrop {
+  from {
+    transform: translateY(-120vh);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.clearRedBulls {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+
+  padding: 12px 20px;
+
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #111;
+  border-radius: 12px;
+
+  font-family: "Essays1743", serif;
+  font-size: 22px;
+
+  cursor: pointer;
+  z-index: 10001;
+
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.clearRedBulls:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.clearRedBulls:active {
+  transform: translateY(0);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+}

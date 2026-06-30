@@ -2,23 +2,33 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import * as Matter from "matter-js";
+import { useRef } from "react";
 
 
 export default function HomePage() {
-  const router = useRouter();
-
-  const [isMobile, setIsMobile] = useState(false);
-  const [showF1Modal, setShowF1Modal] = useState(false);
+const router = useRouter();
+const [isMobile, setIsMobile] = useState(false);
+const [showF1Modal, setShowF1Modal] = useState(false);
+const engineRef = useRef<Matter.Engine | null>(null);
+const renderRef = useRef<Matter.Render | null>(null);
+const runnerRef = useRef<Matter.Runner | null>(null);
+const [showClearButton, setShowClearButton] =
+  useState(false);
 const [lampOn, setLampOn] = useState(false);
-const [redBullRain, setRedBullRain] = useState(false);
+const redBullContainerRef =
+  useRef<HTMLDivElement>(null);
 
-const summonRedBulls = () => {
-  setRedBullRain(true);
+const redBullTriggered = useRef(false);
 
-  setTimeout(() => {
-    setRedBullRain(false);
-  }, 5000);
-};
+const textures = [
+  "/can.png",
+  "/can2.png",
+  "/can3.png",
+  "/can4.png",
+  "/can5.png",
+];
+
 const [adsEnabled, setAdsEnabled] = useState(false);
 const [ads, setAds] = useState<
   {
@@ -28,6 +38,138 @@ const [ads, setAds] = useState<
     left: number;
   }[]
 >([]);
+
+const clearRedBulls = () => {
+  const render = renderRef.current;
+  const runner = runnerRef.current;
+  const engine = engineRef.current;
+  setShowClearButton(false);
+  const container = redBullContainerRef.current;
+
+  if (render) {
+    Matter.Render.stop(render);
+    render.canvas.remove();
+    render.textures = {};
+  }
+
+  if (runner) {
+    Matter.Runner.stop(runner);
+  }
+
+  if (engine) {
+    Matter.Composite.clear(engine.world, false);
+    Matter.Engine.clear(engine);
+  }
+
+  if (container) {
+    container.innerHTML = "";
+  }
+
+  renderRef.current = null;
+  runnerRef.current = null;
+  engineRef.current = null;
+  redBullTriggered.current = false;
+};
+
+
+const summonRedBulls = () => {
+ if (redBullTriggered.current) return;
+redBullTriggered.current = true;
+setShowClearButton(true);
+const container =
+    redBullContainerRef.current;
+
+  if (!container) return;
+
+  const {
+    Engine,
+    Render,
+    Runner,
+    Bodies,
+    Composite
+  } = Matter;
+
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  const engine = Engine.create();
+  engine.gravity.y = 1.8;
+  engineRef.current = engine;
+
+  const render = Render.create({
+    
+    
+    element: container,
+    engine,
+    options: {
+      width,
+      height,
+      wireframes: false,
+      background: "transparent",
+      
+    },
+  });
+
+  renderRef.current = render;
+
+  const floor = Bodies.rectangle(
+    width / 2,
+    height + 50,
+    width,
+    100,
+    {
+      isStatic: true,
+    }
+  );
+
+  
+const canCount =
+  window.innerWidth > 1600
+    ? 300
+    : window.innerWidth > 1000
+    ? 220
+    : 150;
+  
+
+  
+     Composite.add(engine.world, floor);
+
+for (let i = 0; i < canCount; i++) {
+  const texture =
+    textures[
+      Math.floor(
+        Math.random() * textures.length
+      )
+    ];
+
+  const can = Bodies.rectangle(
+    Math.random() * width,
+    -Math.random() * 2000,
+    24,
+    70,
+    {
+      restitution: 0.2,
+      friction: 0.8,
+      render: {
+        sprite: {
+          texture,
+          xScale: 0.1,
+          yScale: 0.1,
+        },
+      },
+    }
+  );
+
+  Composite.add(engine.world, can);
+}
+
+Render.run(render);
+
+const runner = Runner.create();
+Runner.run(runner, engine);
+runnerRef.current = runner;
+};
+    
 
 const adMessages = [
   "Cute ducks near you!!.",
@@ -45,6 +187,12 @@ const adMessages = [
     "Error 404: Motivation not found.",
     "Congratulations. Nothing happened."
 ];
+
+
+
+
+
+
 const [showFlowerModal, setShowFlowerModal] = useState(false);
 
 useEffect(() => {
@@ -93,6 +241,7 @@ left: Math.random() * (window.innerWidth - 380),
       },
     ]);
   }, 150);
+
 
   return () => clearInterval(interval);
 }, [adsEnabled]);
@@ -272,9 +421,10 @@ const openF1Modal = () => {
         
       </div>
 
-      <div className="hitbox pen">
-        
-      </div>
+      <div
+  className="hitbox pen"
+  onClick={() => router.push("/pen")}
+></div>
 
       <div className="hitbox pencil">
         
@@ -303,11 +453,10 @@ const openF1Modal = () => {
 >
         <span className="label">music</span>
       </div>
-
-      <div
+<div
   className="hitbox energy"
   onClick={summonRedBulls}
-></div>
+/>
 
       <div
         className="hitbox laptop"
@@ -324,9 +473,9 @@ const openF1Modal = () => {
       
 
       <div className="desk-signature">
-        <p>my desk</p>
-        <span>please ignore the mess</span>
-        <span>— shristi sharma</span>
+        <p>My Desk</p>
+        <span>please ignore the Mess</span>
+        <span>— Shristi Sharma</span>
       </div>
 
     <div
@@ -460,25 +609,26 @@ ____   \\\\/___/
   </button>
 )}
 
-{redBullRain &&
-  Array.from({ length: 40 }).map((_, i) => {
-    const can = (i % 3) + 1;
 
-    return (
-      <img
-        key={i}
-        src={`/redbull${can}.png`}
-        alt=""
-        className="fallingRedBull"
-        style={{
-          left: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 1.5}s`,
-          animationDuration: `${2.5 + Math.random() * 2}s`,
-          rotate: `${Math.random() * 360}deg`,
-        }}
-      />
-    );
-  })}
+<div
+  ref={redBullContainerRef}
+  className="redBullContainer"
+/>
+
+
+{showClearButton && (
+  <button
+    className="clearRedBulls"
+    onClick={clearRedBulls}
+  >
+    clear red bulls
+  </button>
+)}
+
+
+  
+
+
     </main>
   );
   }
