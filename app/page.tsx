@@ -8,6 +8,8 @@ import { useRef } from "react";
 
 export default function HomePage() {
 const router = useRouter();
+const [bearMessage, setBearMessage] =
+  useState("");
 const [isMobile, setIsMobile] = useState(false);
 const [showF1Modal, setShowF1Modal] = useState(false);
 const engineRef = useRef<Matter.Engine | null>(null);
@@ -38,6 +40,8 @@ const [ads, setAds] = useState<
     left: number;
   }[]
 >([]);
+
+
 
 const clearRedBulls = () => {
   const render = renderRef.current;
@@ -188,6 +192,37 @@ const adMessages = [
     "Congratulations. Nothing happened."
 ];
 
+const bearMessages = [
+  "hi! :)",
+  "i guard the desk.",
+  "don't touch the red bull.",
+  "don't touch the star.",
+  "go finish your project.",
+  "do something productive.",
+  "have water!",
+  "the desk is under my protection.",
+  "i'm just a little guy.",
+  "the frog and i are friends.",
+  "red bull count: concerning.",
+  "why are you clicking me again"
+];
+
+
+const handleBearClick = () => {
+  const randomMessage =
+    bearMessages[
+      Math.floor(
+        Math.random() *
+          bearMessages.length
+      )
+    ];
+
+  setBearMessage(randomMessage);
+
+  setTimeout(() => {
+    setBearMessage("");
+  }, 5000);
+};
 
 
 
@@ -413,10 +448,17 @@ const openF1Modal = () => {
 
       {/* MIDDLE */}
 
-      <div className="hitbox teddybear">
-       
-      </div>
+      <div
+  className="hitbox teddybear"
+  onClick={handleBearClick}
+>
+</div>
 
+{bearMessage && (
+  <div className="bearMessage">
+    {bearMessage}
+  </div>
+)}
       <div className="hitbox books">
         
       </div>
@@ -625,7 +667,11 @@ ____   \\\\/___/
   </button>
 )}
 
-
+{bearMessage && (
+  <div className="bearMessage">
+    {bearMessage}
+  </div>
+)}
   
 
 
