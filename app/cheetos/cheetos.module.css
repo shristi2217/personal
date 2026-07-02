@@ -1,0 +1,30 @@
+.game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff7e6;
+  cursor: none;
+}
+
+.score {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 100;
+  font-size: 2rem;
+}
+
+.cheeto {
+  position: absolute;
+  width: 80px;
+  pointer-events: none;
+}
+
+.bag {
+  position: absolute;
+  bottom: 30px;
+  width: 250px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
